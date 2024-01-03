@@ -11,23 +11,22 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "100%",
+  fig.pos = "center"
 )
 ```
 
-# peerest
+# ptmap
 
 <!-- badges: start -->
 
 <!-- badges: end -->
 
-The goal of peerest is to ...
-
-Estimate peer effects in high-dimensional networks
+`ptmap` facilitates the creation of maps of Portuguese NUTs. For now, it only supports NUTs 2.
 
 ## Installation
 
-You can install the development version of peerest from [GitHub](https://github.com/) with:
+You can install the development version of ptmap from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -40,9 +39,9 @@ This is a basic example which shows you how to solve a common problem:
 
 ```{r}
 library(ptmap)
-## basic example code
-
 library(dplyr)
+library(ggplot2)
+
 data(qp_nut2_data) # load wage data from Portugal at NUT2 level
 
 # create a tibble with only one year, 2019.
@@ -57,6 +56,7 @@ map_pt_19 <- df19 %>%
 ```
 
 ```{r}
-# can the figure show up?
-map_pt_19
+# The output is a ggplot map that can be easily altered
+map_pt_19 +
+  labs(fill = "Real Average Wage") # changes the title of legend
 ```

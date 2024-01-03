@@ -37,7 +37,7 @@ devtools::install_github("Salema-DG/ptmap")
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 library(ptmap)
 library(dplyr)
 library(ggplot2)

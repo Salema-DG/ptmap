@@ -26,18 +26,7 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(ptmap)
-#> Loading required package: sf
-#> Linking to GEOS 3.10.2, GDAL 3.4.1, PROJ 7.2.1; sf_use_s2() is TRUE
 library(dplyr)
-#> Warning: package 'dplyr' was built under R version 4.1.3
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 library(ggplot2)
 
 data(qp_nut2_data) # load wage data from Portugal at NUT2 level

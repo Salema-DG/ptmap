@@ -1,0 +1,24 @@
+
+#' @title Shape file with the map of European NUTS.
+#'
+#' @description The Dataset has information with maps of NUTs in Europe.
+#'
+#' @format A tibble with 203 rows and 4 variables:
+#' \describe{
+#'   \item{\code{NUTS_ID}}{Unique ID of the NUTS.}
+#'   \item{\code{LEVL_CODE}}{Level of the NUT. Starts in 0, with countries and ends in 3.}
+#'   \item{\code{CNTR_CODE}}{Country code.}
+#'   \item{\code{NAME_LATN}}{Name of the NUT with latin alphabet.}
+#'   \item{\code{NUTS_NAME}}{Original name of the NUT.}
+#'   \item{\code{NUTS_NAME}}{}
+#'   \item{\code{URBN_TYPE}}{}
+#'   \item{\code{COAST_TYPE}}{}
+#'   \item{\code{FID}}{}
+#'   \item{\code{geometry}}{Contains the multipolygons.}
+#'}
+#'
+#' @source {Eurostat: https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts}
+#'
+#' @examples
+#' data(europe) # lazy loading. The RAM will not be immediately occupied.
+"europe"

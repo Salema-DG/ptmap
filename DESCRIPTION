@@ -1,0 +1,23 @@
+Package: ptmap
+Title: Simple Maps for Portugal
+Version: 0.0.0.9000
+Authors@R: 
+    person("Miguel", "Salema", email = "miguelsalema1999@gmail.com", role = c("aut", "cre"))
+Description: This package has functions that facilitate the creation of maps for Portugal. 
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Depends: 
+    R (>= 2.10),
+    sf
+LazyData: true
+Date: 22/12/2023
+Imports: 
+    dplyr,
+    ggplot2,
+    RColorBrewer,
+    stringr,
+    rlang,
+    magrittr,
+    gridExtra

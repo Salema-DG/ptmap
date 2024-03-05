@@ -13,7 +13,9 @@ map_pt_nuts_II(
     c(-17.5, -16), y_madeira = c(32.5, 33.2), x_acores = c(-31, -25.5), y_acores = c(37,
     39.5)),
   map = ptmap::europe,
-  nut_var_qp = FALSE
+  nut_var_qp = FALSE,
+  round_to = 0,
+  unit = ""
 )
 }
 \arguments{
@@ -30,6 +32,10 @@ map_pt_nuts_II(
 \item{map}{What is the base map that should be used.}
 
 \item{nut_var_qp}{If true, that means that the NUT2 classification in the variable is not correct, but yes as in my QP cleaning (1, 2,...). If this is TRUE, it automatically transforms this variable.}
+
+\item{round_to}{Round the text.}
+
+\item{unit}{Add a unit to the text}
 }
 \value{
 A ggplot object with the map. The theme can still be changed and other options/geoms added.
@@ -55,7 +61,7 @@ map_pt_19 <- df19 \%>\%
 
 # The output is a ggplot map that can be easily altered
 map_pt_19 +
-  labs(fill = "Real Average Wage") # changes the title of the legend
+  labs(title = "Real Average Wage") # changes the title of the legend
 
 # we can put 2 graphs next to each other
 df93 <- qp_nut2_data \%>\%

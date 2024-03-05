@@ -12,6 +12,8 @@
 #' @param coordinates This list contains the coordinates for mainland portugal, madeira and a?ores.
 #' @param map What is the base map that should be used.
 #' @param nut_var_qp If true, that means that the NUT2 classification in the variable is not correct, but yes as in my QP cleaning (1, 2,...). If this is TRUE, it automatically transforms this variable.
+#' @param round_to Round the text.
+#' @param unit Add a unit to the text
 #'
 #' @return A ggplot object with the map. The theme can still be changed and other options/geoms added.
 #'
@@ -40,7 +42,7 @@
 #'
 #' # The output is a ggplot map that can be easily altered
 #' map_pt_19 +
-#'   labs(fill = "Real Average Wage") # changes the title of the legend
+#'   labs(title = "Real Average Wage") # changes the title of the legend
 #'
 #' # we can put 2 graphs next to each other
 #' df93 <- qp_nut2_data %>%
@@ -69,7 +71,9 @@ map_pt_nuts_II <- function(data,
                              y_acores = c(37, 39.5)
                            ),
                            map = ptmap::europe,
-                           nut_var_qp = FALSE) {
+                           nut_var_qp = FALSE,
+                           round_to = 0,
+                           unit = "") {
 
 
 
@@ -112,21 +116,32 @@ map_pt_nuts_II <- function(data,
     # Start with a full european map, for the coordinates to make sense
     map %>%
     ggplot2::ggplot() +
-    ggplot2::geom_sf() +
     # then add the data of portugal
     ggplot2::geom_sf(
       data = df_graph,
       ggplot2::aes(fill = {{main_var}}),
       color = "white") +
+    # for the text
+    ggplot2::geom_sf_label(data = df_graph,
+                           ggplot2::aes(label = {{main_var}} %>% round(round_to) %>% paste0(unit)),
+                           colour = "black",
+                           fill = "white",  # override the fill from aes()
+                           fun.geometry = sf::st_centroid,
+                           size = 4.5,
+                           nudge_y = 0.2,
+                           alpha = 0.3,
+                           label.size  = NA #remove the borders
+                           ) + 
     #facet_grid(cols = vars(year)) +
     ggplot2::theme_classic() +
     ggplot2:: theme(
-      legend.position = "top",
+      legend.position = "none",
+      axis.title = ggplot2::element_blank(),
       panel.background = ggplot2::element_rect(
         fill = "lightblue" # add blue for the sea
       )) +
     ggplot2::scale_fill_gradientn(colours = pal) # the palette
-
+  
   # devide the territories
   # In this codes, to make the xlim and ylim be coordinates, it's essensial to have a crs code
   # This one is a code that encompasses almost the entire globe
@@ -183,7 +198,7 @@ map_pt_nuts_II <- function(data,
       xmax = -9,
       ymin = 40,
       ymax = 42
-    )
+    ) 
 
   return(full_portugal)
 }

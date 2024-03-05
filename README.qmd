@@ -52,11 +52,13 @@ df19 <- qp_nut2_data %>%
 map_pt_19 <- df19 %>%
  map_pt_nuts_II(main_var = mean_real_wage,
                 nut2_var = nut_2_est,
-                nut_var_qp = T)
+                nut_var_qp = T,
+                round_to = 0,
+                unit = "")
 ```
 
 ```{r}
 # The output is a ggplot map that can be easily altered
 map_pt_19 +
-  labs(fill = "Real Average Wage") # changes the title of legend
+  labs(title = "Real Average Wage by Region") # changes the title of legend
 ```

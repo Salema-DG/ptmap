@@ -43,7 +43,8 @@ map_pt_municip <- function(data,
                              y_acores = c(37, 39.5)
                            ),
                            map = ptmap::pt_municip,
-                           map_europe = ptmap::europe
+                           map_europe = ptmap::europe,
+                           extra = NULL
                            ) {
 
 
@@ -81,8 +82,14 @@ map_pt_municip <- function(data,
       panel.background = ggplot2::element_rect(
         fill = "lightblue" # add blue for the sea
       )) +
-    ggplot2::scale_fill_gradientn(colours = pal) # the palette
-  
+    ggplot2::scale_fill_gradientn(colours = pal)  # the palette
+    
+  # add the extra stuff
+  if (!is.null(extra)) {
+    map_base <- 
+      map_base + 
+      extra
+  }
 
 
   # devide the territories

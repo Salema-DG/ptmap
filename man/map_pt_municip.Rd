@@ -13,7 +13,8 @@ map_pt_municip(
     c(-17.5, -16), y_madeira = c(32.5, 33.2), x_acores = c(-31, -25.5), y_acores = c(37,
     39.5)),
   map = ptmap::pt_municip,
-  map_europe = ptmap::europe
+  map_europe = ptmap::europe,
+  extra = NULL
 )
 }
 \arguments{
